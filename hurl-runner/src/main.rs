@@ -1,5 +1,7 @@
 use std::env;
 use std::fs;
+use std::io::Write;
+use std::process::Stdio;
 use std::process::{exit, Command};
 use streaming_iterator::StreamingIterator;
 use tree_sitter::{Language, Parser, Query, QueryCursor};
@@ -13,6 +15,31 @@ fn main() {
     if args.len() < 3 {
         eprintln!("Usage: hurl-runner <file> <row>");
         exit(1);
+    }
+
+    if args.len() >= 2 && args[1] == "--selected" {
+        let selected = std::env::var("HURL_SELECTED").unwrap_or_else(|_| {
+            eprintln!("Error: HURL_SELECTED env var not set");
+            exit(1);
+        });
+
+        let mut child = Command::new("hurl")
+            .stdin(Stdio::piped())
+            .spawn()
+            .unwrap_or_else(|e| {
+                eprintln!("Failed to run hurl: {}", e);
+                exit(1);
+            });
+
+        child
+            .stdin
+            .as_mut()
+            .unwrap()
+            .write_all(selected.as_bytes())
+            .unwrap();
+
+        let status = child.wait().unwrap();
+        exit(status.code().unwrap_or(1));
     }
 
     let file = &args[1];

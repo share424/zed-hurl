@@ -10,5 +10,14 @@
     "command": "hurl",
     "args": ["$ZED_FILE"],
     "tags": ["hurl-request"]
+  },
+  {
+    "label": "Run selected hurl requests",
+    "command": "hurl-runner",
+    "args": ["--selected", "$ZED_FILE"],
+    "env": {
+      "HURL_SELECTED": "$ZED_SELECTED_TEXT"
+    },
+    "tags": ["hurl-request"]
   }
 ]
