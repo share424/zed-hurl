@@ -3,8 +3,8 @@ name = "Hurl"
 description = "Hurl file syntax highlighting"
 version = "0.1.0"
 schema_version = 1
-authors = ["Tommy R."]
-repository = "https://github.com/tommy/zed-hurl"
+authors = ["share424"]
+repository = "https://github.com/share424/zed-hurl"
 
 [grammars.hurl]
 repository = "https://github.com/pfeiferj/tree-sitter-hurl.git"

@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Run hurl request",
+    "command": "hurl-runner",
+    "args": ["$ZED_FILE", "$ZED_ROW"],
+    "tags": ["hurl-request"]
+  },
+  {
+    "label": "Run all hurl requests",
+    "command": "hurl",
+    "args": ["$ZED_FILE"],
+    "tags": ["hurl-request"]
+  }
+]

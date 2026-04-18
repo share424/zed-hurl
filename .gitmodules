@@ -1,0 +1,3 @@
+[submodule "hurl-runner/tree-sitter-hurl"]
+	path = hurl-runner/tree-sitter-hurl
+	url = https://github.com/pfeiferj/tree-sitter-hurl.git

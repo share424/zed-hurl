@@ -1,4 +1,3 @@
-# Check search API:
 GET http://localhost:3000/api/search
 [QueryStringParams]
 q: 1982

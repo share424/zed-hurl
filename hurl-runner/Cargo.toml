@@ -1,0 +1,15 @@
+[package]
+name = "hurl-runner"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "hurl-runner"
+path = "src/main.rs"
+
+[dependencies]
+tree-sitter = "0.24"
+streaming-iterator = "0.1"
+
+[build-dependencies]
+cc = "1.0"
